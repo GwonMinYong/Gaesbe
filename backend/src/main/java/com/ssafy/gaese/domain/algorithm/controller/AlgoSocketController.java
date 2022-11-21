@@ -96,7 +96,7 @@ public class AlgoSocketController {
     public void algoPassTimerTest(AlgoRoomCodeDto roomCodeDto ) throws Exception{
 
         System.out.println("timer 시작");
-        Thread.sleep(1000*5);
+        Thread.sleep(1000*10);
         // Pass 했는지 확인
         AlgoRoomPassDto algoRoomPassDto = algoSocketService.getRoomPass(roomCodeDto.getRoomCode());
         if(algoRoomPassDto.isPass()){ // pass
