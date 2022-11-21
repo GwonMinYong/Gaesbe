@@ -58,7 +58,7 @@ public class CsService {
 
     private final int penaltyScore=60;
 
-    private final int numProblem=2;
+    private final int numProblem=6;
 
     public Page<CsRecordDto> findCsRecord(Long userId, Pageable pageable){
         Page<CsRecord> CsRecords = csRecordRepository
@@ -216,7 +216,7 @@ public class CsService {
             csRoomRedisRepository.save(roomDto);
 
             //            게임 시작하고 60초 타이머
-            Thread.sleep(10*1000);
+            Thread.sleep(60*1000);
 
 
             // **********문제는 끝
