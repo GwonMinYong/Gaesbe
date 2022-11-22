@@ -216,7 +216,7 @@ public class CsService {
             csRoomRedisRepository.save(roomDto);
 
             //            게임 시작하고 60초 타이머
-            Thread.sleep(60*1000);
+            Thread.sleep(15*1000);
 
 
             // **********문제는 끝
