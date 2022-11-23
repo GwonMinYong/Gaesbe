@@ -145,7 +145,7 @@ const IngameBlock = styled.div`
   width: 100%;
   height: 100%;
 
-  --duration: 8;
+  --duration: 15;
 
   .problemBox {
     width: 100%;
@@ -483,7 +483,7 @@ const CSIngamePage = () => {
             setIsSubmit(false);
             setTimeout(() => {
               setIsNext(true);
-            }, 15000);
+            }, 6000);
           } else if (data.hasOwnProperty('isLast')) {
             setIsLast(data.isLast);
           }
