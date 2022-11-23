@@ -27,44 +27,51 @@ const MyRoom = styled.img`
 `;
 
 const MyCharacter = styled.img`
-      width: 9%;
-    position: absolute;
-    bottom: 33%;
-    left: 43%;
-    z-index: 4;
+  width: 9%;
+  position: absolute;
+  bottom: 33%;
+  left: 43%;
+  z-index: 4;
 `;
 const MyComputer = styled.img`
-      width: 17%;
-    position: absolute;
-    bottom: 45%;
-    left: 28%;
+  width: 17%;
+  position: absolute;
+  bottom: 45%;
+  left: 28%;
   :hover {
     transform: scale(1.2);
-    content: url("/img/roomGif/level0computer.gif");
+    content: url('/img/roomGif/level0computer.gif');
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 const Coin = styled.img`
   width: 4%;
   height: 3%;
   position: absolute;
   bottom: 56%;
   left: 50%;
-  animation: motion 1.4s linear 0s infinite ; margin-top: 0;
-  
+  animation: motion 1.4s linear 0s infinite;
+  margin-top: 0;
+
   @keyframes motion {
-	0% {margin-bottom: 0px;}
-	50% {margin-bottom: 0.9%;}
-	100% {margin-bottom: 0px;}
-}
+    0% {
+      margin-bottom: 0px;
+    }
+    50% {
+      margin-bottom: 0.9%;
+    }
+    100% {
+      margin-bottom: 0px;
+    }
+  }
 
   :hover {
     transform: scale(1.2);
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 const Note = styled.img`
   width: 9%;
   position: absolute;
@@ -75,14 +82,13 @@ const Note = styled.img`
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 const Spider = styled.img`
   width: 13%;
   left: 44%;
   position: absolute;
   top: 4%;
-  
-  `;
+`;
 const Calender = styled.img`
   /* width: 5%;
   height: 12%; */
@@ -99,11 +105,10 @@ const Calender = styled.img`
     /* content: url("/img/MyOffice/level0calender.gif"); */
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
-const Level0 = ({ handleModal,officeIdx }: any) => {
+`;
+const Level0 = ({ handleModal, officeIdx }: any) => {
   const navigate = useNavigate();
 
-  
   const { userInfo } = useSelector((state: any) => state.auth);
   const handleCoin = () => {
     navigate('/game/casino');
@@ -119,25 +124,28 @@ const Level0 = ({ handleModal,officeIdx }: any) => {
   return (
     <Unity>
       <div className="imageContainer">
-        {userInfo && <MyCharacter
-              src={`${process.env.REACT_APP_S3_URL}/profile/${userInfo.profileChar}_normal.gif`}
-              className="profileImg"
-              alt="profileImg"
-            />}
-        
-
+        {userInfo && (
+          <MyCharacter
+            src={`${process.env.REACT_APP_S3_URL}/profile/${userInfo.profileChar}_normal.gif`}
+            className="profileImg"
+            alt="profileImg"
+          />
+        )}
 
         <MyRoom src="/img/MyOffice/level00.gif" alt="lv0 room" />
 
         <MyComputer
           onClick={handleGameSelect}
-          src="/img/MyOffice/level00computer.png"
+          src="/img/MyOffice/level0computer.png"
           alt="내 컴퓨터"
         />
         <Coin onClick={handleCoin} src="/img/coin/coin.png" />
         <Note onClick={handleMyPage} src="/img/MyOffice/level0note.png" />
         <Spider src="/img/roomGif/spider.gif" />
-        <Calender onClick={handleModal} src="/img/MyOffice/level0calender.png" />
+        <Calender
+          onClick={handleModal}
+          src="/img/MyOffice/level0calender.png"
+        />
       </div>
     </Unity>
   );

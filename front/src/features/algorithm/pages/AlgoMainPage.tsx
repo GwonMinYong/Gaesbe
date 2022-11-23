@@ -70,7 +70,6 @@ const Content = styled.div`
     flex-direction: row;
     text-align: center;
     height: 66%;
-    
   }
   .room {
     width: 50%;
@@ -95,7 +94,6 @@ const Content = styled.div`
     height: 83%;
     overflow-y: auto;
     border-top: 5px solid black;
-    
   }
 `;
 
@@ -134,7 +132,7 @@ function AlgoMainPage() {
       const res = await fetchAlgoRoomList();
       setRoomList(res.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

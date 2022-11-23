@@ -65,7 +65,7 @@ function* creatAlgoRoomSaga(action: Action<AlgoRoomInterface>) {
       });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -101,7 +101,7 @@ function* sendMyRankSaga(action: Action<RecordSendInterface>) {
       yield put(algoActions.loadingEnd());
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

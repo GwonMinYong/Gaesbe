@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 
 function CSUser({ user, ranking, my }: any) {
   if (ranking) {
-    console.log('ranking', ranking[user[0]]);
+    // console.log('ranking', ranking[user[0]]);
   }
 
   return (

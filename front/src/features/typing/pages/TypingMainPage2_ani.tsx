@@ -31,9 +31,9 @@ const SelectLanguageBox = styled.div`
   height: 10rem;
   align-items: center;
 
-  overflow-y:hidden;
-  overflow-x:auto;
-  padding:2rem 2rem;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 2rem 2rem;
   /* position: relative; */
   /* border: 2px solid blue; */
 
@@ -46,81 +46,80 @@ const SelectLanguageBox = styled.div`
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
 
-  .relative{
-    position:relative;
+  .relative {
+    position: relative;
   }
 
-  .imgBox{
+  .imgBox {
     background: white;
     width: 100%;
     height: 100%;
 
     :hover {
-          background: #ececec;
-      }
+      background: #ececec;
+    }
 
-    &.java{
+    &.java {
       box-shadow: 0px 0px 12px 6px #ff434a;
     }
 
-    &.python{
+    &.python {
       box-shadow: 0px 0px 12px 6px #ffc02d;
     }
-    
-    
+
     animation-name: showToIconBg;
     animation-duration: 2s;
     @keyframes showToIconBg {
       0% {
-        transform: translateY(-100%); 
+        transform: translateY(-100%);
       }
       50% {
         transform: translateX(0);
       }
     }
-    img{
-        width: 80%;
-        padding: 10%;
-  
-        animation-name: showToIcon;
+    img {
+      width: 80%;
+      padding: 10%;
+
+      animation-name: showToIcon;
       animation-duration: 2s;
-        @keyframes showToIcon {
+      @keyframes showToIcon {
         0% {
-          transform: translateY(-100%); 
+          transform: translateY(-100%);
         }
         100% {
-          transform: translateY(0); 
+          transform: translateY(0);
         }
       }
     }
   }
 
-  .langName{
+  .langName {
     position: absolute;
     /* background: #4e4e4e; */
-    
+
     font-weight: bold;
-    
+
     top: 70%;
     right: -2rem;
     overflow: hidden;
-    
-    div{
-      width:100%;
-      height:100%;
+
+    div {
+      width: 100%;
+      height: 100%;
       background: #4e4e4e;
       padding: 0.4rem;
       box-sizing: border-box;
-      
+
       animation-name: showToLangName;
       animation-duration: 2s;
 
-        @keyframes showToLangName {
+      @keyframes showToLangName {
         0% {
           transform: translateX(-130%);
           opacity: 0;
         }
-        50%{
+        50% {
           transform: translateX(-130%);
           opacity: 0;
           /* display: none; */
@@ -134,20 +133,14 @@ const SelectLanguageBox = styled.div`
           color: white;
         }
       }
-      }
-
-      }
-
-
-
-
+    }
+  }
 `;
-const SelectGameType = styled.div`
-`;
+const SelectGameType = styled.div``;
 const SelectTypeBox = styled.div`
-button{
-  padding: 1rem;
-}
+  button {
+    padding: 1rem;
+  }
 `;
 function TypingMainPage() {
   const [gameType, setGameType] = useState<String>('PYTHON');
@@ -160,13 +153,13 @@ function TypingMainPage() {
   };
   const handleChoicePython = () => {
     setGameType('PYTHON');
-    console.log('파이썬 선택');
+    // console.log('파이썬 선택');
   };
   const handleChoiceJava = () => {
     setGameType('JAVA');
-    console.log('자바 선택');
+    // console.log('자바 선택');
   };
-  console.log(gameType);
+  // console.log(gameType);
   return (
     <TypingMain>
       <div className="title">
@@ -174,12 +167,9 @@ function TypingMainPage() {
       </div>
       <h1>타이핑 연습을 하면서 언어와 친해지자</h1>
       <SelectLanguage>
-        
         <SelectLanguageBox onClick={handleChoicePython}>
           <div className="relative">
-
-            <div className={`imgBox ${gameType=="PYTHON"?"python":""}`}>
-
+            <div className={`imgBox ${gameType == 'PYTHON' ? 'python' : ''}`}>
               <img
                 className="gaze"
                 src={`/img/langIcon/python_icon.png`}
@@ -187,37 +177,28 @@ function TypingMainPage() {
               />
             </div>
             <div className="langName">
-              <div>
-
-              Python
-              </div>
+              <div>Python</div>
             </div>
           </div>
         </SelectLanguageBox>
         <SelectLanguageBox onClick={handleChoiceJava}>
           <div className="relative">
-            
-            <div className={`imgBox ${gameType=="JAVA"?"java":""}`}>
-
+            <div className={`imgBox ${gameType == 'JAVA' ? 'java' : ''}`}>
               <img
                 className="gaze"
                 src={`/img/langIcon/Java_icon.png`}
                 alt="luck_exp"
               />
-              </div>
-              <div className="langName">
-              <div>
-
-              Java
-              </div>
-              </div>
             </div>
+            <div className="langName">
+              <div>Java</div>
+            </div>
+          </div>
         </SelectLanguageBox>
       </SelectLanguage>
-        <div>
+      <div>
         <h3>언어를 선택해주세요</h3>
-
-        </div>
+      </div>
       <SelectGameType>
         <SelectTypeBox>
           <button onClick={handleRandomGame}>랜덤매칭</button>

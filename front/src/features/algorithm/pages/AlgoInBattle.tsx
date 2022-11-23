@@ -246,12 +246,6 @@ function AlgoInBattle() {
       }),
     );
   };
-  useEffect(() => {
-    if (userInfo) {
-      console.log('userInfo.id의 타입');
-      console.log(typeof userInfo.id);
-    }
-  }, [userInfo]);
 
   return (
     <>

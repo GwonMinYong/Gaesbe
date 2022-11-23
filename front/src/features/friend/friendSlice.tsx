@@ -90,10 +90,10 @@ const friendSlice = createSlice({
     },
     // 채팅 관련
     fetchAlarmList(state, action) {
-      console.log(action);
+      // console.log(action);
     },
     fetchWaitFriend(state, action) {
-      console.log(action);
+      // console.log(action);
     },
     openChatRoom(state, action) {
       state.chatFriend = action.payload;
@@ -129,7 +129,7 @@ const friendSlice = createSlice({
       state.checkedChatList = checkedObj;
     },
     fetchChatError(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
     },
     // 채팅 보내기
     sendChat(state, action) {

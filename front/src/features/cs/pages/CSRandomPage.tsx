@@ -606,7 +606,7 @@ const CSIngamePage = () => {
       setIsLoading(false);
     }
     if (isEnd && rankByPlayer) {
-      console.log('끝');
+      // console.log('끝');
       navigate('/game/CS/result', {
         state: {
           ranking: ranking,
@@ -639,7 +639,7 @@ const CSIngamePage = () => {
       });
       setMyScore(tmp[0]);
       const my = (element: any) => element[0] === userInfo.id;
-      console.log(ranking.findIndex(my));
+      // console.log(ranking.findIndex(my));
     }
   }, [ranking]);
 

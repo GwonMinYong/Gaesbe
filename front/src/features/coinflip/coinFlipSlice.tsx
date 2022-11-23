@@ -36,7 +36,7 @@ const coinSlice = createSlice({
       state.ranking = action.payload;
     },
     fetchSsafyRecordError(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
     },
   },
 });

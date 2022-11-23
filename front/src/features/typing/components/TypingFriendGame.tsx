@@ -396,18 +396,18 @@ const TypingFriendGame = () => {
             testprogress = testdata.progressByPlayer;
             // testtest = testdata.progressByPlayer[`${userInfo.id}`];
           } else if (testdata.hasOwnProperty('start')) {
-            console.log('시ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ');
+            // console.log('시ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ');
             if (testdata.start === true) {
-              console.log('어 시작이야');
+              // console.log('어 시작이야');
             }
             setIsStart(true);
             setTimeout(() => {
               setIsLoading(false);
             }, 4000);
           } else if (testdata.hasOwnProperty('end')) {
-            console.log('끄ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ');
+            // console.log('끄ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ');
             if (testdata.end === true) {
-              console.log('어 끝이야');
+              // console.log('어 끝이야');
             }
             setResultId(testdata.winUserId);
             setResultNickName(testdata.winUserNickName);

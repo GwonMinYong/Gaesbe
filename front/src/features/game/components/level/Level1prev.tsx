@@ -71,7 +71,7 @@ const Level1 = () => {
     <Unity>
       <MyComputer
         onClick={handleAlert}
-        src="/img/MyOffice/level2computer.png"
+        src="/img/MyOffice/level1computer.png"
         alt="내 컴퓨터"
       />
       <Coin onClick={handleCoin} src="/img/coin/coin.png" />

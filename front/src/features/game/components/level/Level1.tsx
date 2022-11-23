@@ -27,24 +27,24 @@ const MyRoom = styled.img`
 `;
 
 const MyCharacter = styled.img`
-      width: 9%;
-    position: absolute;
-    bottom: 33%;
-    left: 43%;
-    z-index: 4;
+  width: 9%;
+  position: absolute;
+  bottom: 33%;
+  left: 43%;
+  z-index: 4;
 `;
 const MyComputer = styled.img`
-        width: 12%;
-    position: absolute;
-    bottom: 52%;
-    left: 67%;
+  width: 12%;
+  position: absolute;
+  bottom: 52%;
+  left: 67%;
   :hover {
     transform: scale(1.2);
-    content: url("/img/MyOffice/level2computer.gif");
+    content: url('/img/MyOffice/level1computer.gif');
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 const Coin = styled.img`
   width: 4%;
   height: 3%;
@@ -64,7 +64,7 @@ const Coin = styled.img`
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 const Note = styled.img`
   width: 10%;
   position: absolute;
@@ -76,7 +76,7 @@ const Note = styled.img`
     transition: 0.4s ease-in-out;
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
+`;
 
 const Calender = styled.img`
   /* width: 5%;
@@ -94,11 +94,10 @@ const Calender = styled.img`
     /* content: url("/img/roomGif/level0calender.gif"); */
     cursor: url('/img/cursor/hover_cursor.png'), auto;
   }
-  `;
-const Level1 = ({ handleModal,officeIdx }: any)=> {
+`;
+const Level1 = ({ handleModal, officeIdx }: any) => {
   const navigate = useNavigate();
 
-  
   const { userInfo } = useSelector((state: any) => state.auth);
   const handleCoin = () => {
     navigate('/game/casino');
@@ -114,24 +113,27 @@ const Level1 = ({ handleModal,officeIdx }: any)=> {
   return (
     <Unity>
       <div className="imageContainer">
-        {userInfo && <MyCharacter
-              src={`${process.env.REACT_APP_S3_URL}/profile/${userInfo.profileChar}_normal.gif`}
-              className="profileImg"
-              alt="profileImg"
-            />}
-        
-
+        {userInfo && (
+          <MyCharacter
+            src={`${process.env.REACT_APP_S3_URL}/profile/${userInfo.profileChar}_normal.gif`}
+            className="profileImg"
+            alt="profileImg"
+          />
+        )}
 
         <MyRoom src="/img/MyOffice/level2.png" alt="lv1 room" />
 
         <MyComputer
           onClick={handleGameSelect}
-          src="/img/MyOffice/level2computer.png"
+          src="/img/MyOffice/level1computer.png"
           alt="내 컴퓨터"
         />
         <Coin onClick={handleCoin} src="/img/coin/coin.png" />
         <Note onClick={handleMyPage} src="/img/MyOffice/note.png" />
-        <Calender onClick={handleModal} src="/img/MyOffice/level0calender.png" />
+        <Calender
+          onClick={handleModal}
+          src="/img/MyOffice/level0calender.png"
+        />
       </div>
     </Unity>
   );

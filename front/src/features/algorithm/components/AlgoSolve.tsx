@@ -174,7 +174,6 @@ function AlgoSolve({
     if (gameResultMsg && firstModalLoading) {
       setModal(true);
       setFirstModalLoading(false);
-      dispatch(algoActions.setLoadingMsg(''));
     }
   }, [gameResultMsg]);
   // 컴포넌트 사라질때 문제 성공 리셋

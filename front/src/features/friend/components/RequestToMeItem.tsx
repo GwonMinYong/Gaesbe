@@ -56,7 +56,7 @@ function RequestToMeItem({ requestListItem, fetchRequestToMe }: any) {
         fetchRequestToMe();
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -67,7 +67,7 @@ function RequestToMeItem({ requestListItem, fetchRequestToMe }: any) {
         fetchRequestToMe();
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

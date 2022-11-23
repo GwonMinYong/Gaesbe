@@ -98,7 +98,40 @@ const Office = styled.div`
     img {
       width: 10rem;
     }
+    .interaction {
+      width: 15%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      :hover {
+        cursor: url('/img/cursor/hover_cursor.png'), auto;
+      }
+    }
     /* font-weight: bold; */
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 20%;
+    height: 20%;
+    top: 15%;
+    left: 10%;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #ffc02d;
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      width: 15%;
+    }
   }
 `;
 
@@ -159,6 +192,7 @@ const MyOfficePage = () => {
   const [nextLevel, setNextLevel] = useState<number>(0);
   const [nextLevelName, setNextLevelName] = useState<String>('');
   const [isLevelup, setIsLevelup] = useState<Boolean>(false);
+  const [openInfo, setOpenInfo] = useState<boolean>(false);
   const handleModal = () => {
     setModalOpen(!modalOpen);
   };
@@ -233,7 +267,9 @@ const MyOfficePage = () => {
     dispatch(authActions.fetchAbilityStart());
     dispatch(itemActions.fetchCharacterStart());
   }, []);
-
+  const handleOpenInfo = () => {
+    setOpenInfo(!openInfo);
+  };
   return (
     <Wrapper>
       {levelupable && (
@@ -267,6 +303,41 @@ const MyOfficePage = () => {
               <Office>
                 <div className="officeName">
                   <img src={`/img/MyOffice/officeName/${idx}.png`} />
+                  {v.own && idx <= 5 && (
+                    <img
+                      onMouseEnter={handleOpenInfo}
+                      onMouseLeave={handleOpenInfo}
+                      className="interaction"
+                      src="/img/questionMark-gray.png"
+                      alt=""
+                    />
+                  )}
+                </div>
+                <div
+                  className="info"
+                  style={{ display: openInfo ? '' : 'none' }}
+                >
+                  <div>
+                    <img
+                      src={`/img/MyOffice/level${idx}computer.png`}
+                      alt="asd"
+                    />{' '}
+                    : 게임페이지로
+                  </div>
+                  <div>
+                    <img src={`/img/coin/coin.png`} alt="" /> : 싸피게임으로
+                  </div>
+                  <div>
+                    <img
+                      src={`/img/MyOffice/level${idx}note.png`}
+                      alt={`/img/MyOffice/note.png`}
+                    />{' '}
+                    : 마이페이지로
+                  </div>
+                  <div>
+                    <img src={`/img/MyOffice/level${idx}calender.png`} alt="" />{' '}
+                    : 출석체크하기
+                  </div>
                 </div>
                 {/* <div className="officeName">{v.name}</div> */}
 

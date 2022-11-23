@@ -10,52 +10,49 @@ const Wrapper = styled.div`
   border-radius: 10px;
   height: 100%;
   background-color: #c4c4c4;
-`
+`;
 const Content = styled.div`
   height: 90%;
-  .title{
+  .title {
     height: 5%;
     text-align: center;
   }
-`
+`;
 const Select = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 10%;
   border-bottom: 1px solid #fff;
-  .select-item{
+  .select-item {
     text-align: center;
     width: 100%;
     height: 100%;
     border-radius: 10px 10px 0 0;
-    :hover{
+    :hover {
       color: #000;
-      background-color:#FFC02D;
+      background-color: #ffc02d;
     }
-
   }
-  .selected{
-      color: #000;
-      background-color:#FFC02D;
-
-    }
-  
-`
+  .selected {
+    color: #000;
+    background-color: #ffc02d;
+  }
+`;
 
 const SelectedCode = styled.div`
   height: 84%;
   overflow-y: auto;
-  padding : 10px;
-  background-color: #FFC02D;
+  padding: 10px;
+  background-color: #ffc02d;
   border-radius: 0 0 6px 6px;
-`
+`;
 
 const Close = styled.img`
   /* z-index: 5000; */
   position: absolute;
   top: 5%;
-  right:5%;
+  right: 5%;
   cursor: url('/img/cursor/hover_cursor.png'), auto;
 `;
 
@@ -83,13 +80,13 @@ function AlgoDetailInfo({ handleModal, algoDetailRoomCode }: Props) {
   }, []);
   useEffect(() => {
     if (resultCodes) {
-      console.log(resultCodes);
+      // console.log(resultCodes);
     }
   }, [resultCodes]);
   const fetchResultCodeRequest = async () => {
     try {
       const res = await resultCodeRequest(algoDetailRoomCode);
-      console.log(res);
+      // console.log(res);
       if (res.status === 200) {
         setResultCodes(res.data);
       }
@@ -109,29 +106,39 @@ function AlgoDetailInfo({ handleModal, algoDetailRoomCode }: Props) {
     <Wrapper>
       <Close onClick={handleModal} src="/img/close.png" alt="asdfasdf" />
       <Content>
-        <h1 className='title'>알고리즘 배틀 코드 리뷰</h1>
+        <h1 className="title">알고리즘 배틀 코드 리뷰</h1>
         <Select>
-        {resultCodes?.map((code: ResultCodeInterface, index) => {
-              if (code.userId === userInfo.id) {
-                return (
-                  <div className={codeId == index? 'select-item selected': 'select-item'}  id={index.toString()} key={index} onClick={clickCode}>
-                    <p>나의 코드</p>
-                  </div>
-                );
-              } else {
-                return (
-                  <div className={codeId == index? 'select-item selected': 'select-item'}  id={index.toString()}  key={index} onClick={clickCode}>
-                    <p>누군가의 코드</p>
-                  </div>
-                );
-              }
-
-            })}
-
+          {resultCodes?.map((code: ResultCodeInterface, index) => {
+            if (code.userId === userInfo.id) {
+              return (
+                <div
+                  className={
+                    codeId == index ? 'select-item selected' : 'select-item'
+                  }
+                  id={index.toString()}
+                  key={index}
+                  onClick={clickCode}
+                >
+                  <p>나의 코드</p>
+                </div>
+              );
+            } else {
+              return (
+                <div
+                  className={
+                    codeId == index ? 'select-item selected' : 'select-item'
+                  }
+                  id={index.toString()}
+                  key={index}
+                  onClick={clickCode}
+                >
+                  <p>누군가의 코드</p>
+                </div>
+              );
+            }
+          })}
         </Select>
-        <SelectedCode>
-            {resultCodes && resultCodes[codeId].code}
-        </SelectedCode>
+        <SelectedCode>{resultCodes && resultCodes[codeId].code}</SelectedCode>
         {/* <SelectedCode>
         {resultCodes?.map((code: ResultCodeInterface, index) => {
           

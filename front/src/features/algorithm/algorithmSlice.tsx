@@ -59,6 +59,7 @@ const algoSlice = createSlice({
     },
     sendMyRank(state, action: Action<RecordSendInterface>) {},
     setGameResult(state, action: Action<string>) {
+      // console.log('게임결과 메세지 변경', action.payload);
       state.gameResultMsg = action.payload;
     },
     bjConnectRequestStart(state, action: Action<string>) {

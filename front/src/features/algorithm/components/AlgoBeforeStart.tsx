@@ -99,7 +99,7 @@ function AlgoBeforeStart({
 
   const { friendId } = useSelector((state: any) => state.friend);
   useEffect(() => {
-    console.log(InGameInfo);
+    // console.log(InGameInfo);
     if (friendId) {
       client.current.send(
         '/api/friend/invite',

@@ -209,7 +209,7 @@ function FriendListItem({ friend, type, category, chatCnt }: any) {
             );
           }
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
     });

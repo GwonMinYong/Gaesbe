@@ -31,7 +31,7 @@ const authSlice = createSlice({
     fetchAbilityStart(state) {},
     fetchAbilitySuccess(state, action) {
       state.userAbility = action.payload;
-      console.log(state.userAbility);
+      // console.log(state.userAbility);
     },
     fetchAbilityError(state, action) {},
     // 유저 닉네임, 프로필 생성

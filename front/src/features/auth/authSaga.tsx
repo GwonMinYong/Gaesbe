@@ -99,8 +99,8 @@ function* deleteUserInfoSaga(action: any) {
     yield put(deleteUserInfoSuccess(response.data));
   } catch (error: any) {
     yield put(deleteUserInfoError(error.response));
-    console.log(error.response);
-    console.log(error.response.status);
+    // console.log(error.response);
+    // console.log(error.response.status);
   }
 }
 
