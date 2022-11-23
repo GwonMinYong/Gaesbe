@@ -143,7 +143,7 @@ const IngameBlock = styled.div`
   width: 100%;
   height: 100%;
 
-  --duration: 5;
+  --duration: 8;
 
   .problemBox {
     width: 100%;
@@ -483,7 +483,7 @@ const CSFriendPage = () => {
             setIsSubmit(false);
             setTimeout(() => {
               setIsNext(true);
-            }, 57000);
+            }, 15000);
           } else if (data.hasOwnProperty('master')) {
             setIsMaster(true);
           }
@@ -793,7 +793,7 @@ const CSFriendPage = () => {
           )}
           {problem && !isSubmit && isSolved === null && (
             <div className="problemBox">
-              {problemCnt && <div className="problemCount">{problemCnt}/2</div>}
+              {problemCnt && <div className="problemCount">{problemCnt}/6</div>}
               <div className="problem">
                 <div className="progressContainer">
                   <div className="progress"> </div>
