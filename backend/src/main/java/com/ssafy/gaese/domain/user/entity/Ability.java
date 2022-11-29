@@ -67,6 +67,7 @@ public class Ability {
                 this.algorithmExp+=plus;
                 this.algorithmLv+=this.algorithmExp/7;
                 this.algorithmExp%=7;
+                System.out.println("this.algorithmExp > "+this.algorithmExp);
                 break;
             case "cs":
                 this.csExp+=plus;
