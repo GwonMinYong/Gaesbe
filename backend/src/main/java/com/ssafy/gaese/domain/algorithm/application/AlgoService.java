@@ -99,6 +99,7 @@ public class AlgoService {
                     .build();
         }
         algoRepository.save(algoRecordDto.toEntity(user));
+        System.out.println("능력치 업데이트");
         Ability ability = abilityRepository.findByUser_Id(userId).get();
         ability.addExp("algorithm", 1);
 
