@@ -60,8 +60,10 @@ public class Ability {
 
 
     public void addExp(String field, int plus){
+        System.out.println("addExp 들어옴");
         switch (field){
             case "algorithm":
+                System.out.println("안으로 들어옴");
                 this.algorithmExp+=plus;
                 this.algorithmLv+=this.algorithmExp/7;
                 this.algorithmExp%=7;
