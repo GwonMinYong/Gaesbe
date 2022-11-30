@@ -31,26 +31,14 @@ public class AlgoSocketController {
     // 알고리즘 방 입장/나가기
     @MessageMapping("/algo")
     public void algoRoom(AlgoSocketDto algoSocketDto) throws Exception{
-
         Map<String,Object> res = new HashMap<>();
-        System.out.println("===== 들어옴==== ");
-        System.out.println(algoSocketDto.getType());
 
         if(algoSocketDto.getType() == AlgoSocketDto.Type.ENTER) {
-
-            SetOperations<String ,String > setOperations = redisTemplate.opsForSet();
             if (algoService.enterRoom(algoSocketDto)) {
-
-
                 res.put("playAnotherGame", false);
                 res.put("msg", algoSocketDto.getNickname() + " 님이 접속하셨습니다.");
             }
-
         }
-//        else if(algoSocketDto.getType() == AlgoSocketDto.Type.LEAVE){
-//            algoService.leaveRoom(algoSocketDto);
-//            res.put("msg",algoSocketDto.getUserId()+" 님이 나가셨습니다.");
-//        }
 
         List<AlgoUserDto> users = algoService.getUsers(algoService.getUserIds(algoSocketDto.getRoomCode()));
         res.put("users",users);
@@ -87,9 +75,7 @@ public class AlgoSocketController {
         System.out.println("[controller] pass 누름");
         if(!algoSocketService.getRoomPass(algoRoomCodeDto.getRoomCode()).isPass())
             algoSocketService.setProblemPass(algoRoomCodeDto.getRoomCode());
-
        }
-
     
     // timer 시작, 종료시 pass 상태 확인 후 PASS or START 전송
     @MessageMapping("/algo/timer")
@@ -133,20 +119,11 @@ public class AlgoSocketController {
         }
     }
 
-    @MessageMapping("/algo/startGame")
-    public void startGame(AlgoRoomDto algoRoomDto){
-
-    }
-
     @MessageMapping("/algo/rank")
     public void getRank(AlgoRoomDto algoRoomDto) throws ParseException {
-
         HashMap<String, Object> res = new HashMap<>();
         List<AlgoRankDto> ranking = algoSocketService.getCurrentRank(algoRoomDto.getRoomCode());
         res.put("ranking", ranking);
         simpMessagingTemplate.convertAndSend("/algo/rank/" + algoRoomDto.getRoomCode(), res);
-
-
     }
-
 }
