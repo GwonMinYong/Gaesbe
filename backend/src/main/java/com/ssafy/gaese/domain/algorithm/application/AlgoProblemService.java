@@ -177,7 +177,6 @@ public class AlgoProblemService {
             return  result.equals("맞았습니다!!")? 1 : 0; //
 
         }catch (Exception e){
-            System.out.println("크롤링 중 에러 발생");
             System.out.println(e.toString());
         }finally {
             driver.quit();
@@ -216,11 +215,7 @@ public class AlgoProblemService {
         }
         Date startTime = new SimpleDateFormat("HH:mm:ss").parse(LocalTime.now().toString());
         Date finTime = new SimpleDateFormat("HH:mm:ss").parse(hashOperations.get(roomCode, "startTime"));
-        System.out.println(startTime);
-        System.out.println(finTime);
         double minDiff = (startTime.getTime() - finTime.getTime()) / 60000.0; // 분 단위
-        System.out.println(minDiff+"분");
-
         AlgoRankDto algoRankDto = AlgoRankDto.builder()
                 .problemId(problemId)
                 .min((int)minDiff+"")

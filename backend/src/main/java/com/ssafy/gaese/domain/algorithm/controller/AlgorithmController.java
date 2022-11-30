@@ -49,7 +49,6 @@ public class AlgorithmController {
     public ResponseEntity<AlgoRoomDto> createRoom(
             @RequestBody  AlgoRoomDto algoRoomDto){
         return ResponseEntity.ok().body(algoService.createRoom(algoRoomDto));
-
     }
 
     @DeleteMapping("/room/{code}")
@@ -64,7 +63,6 @@ public class AlgorithmController {
     @ApiOperation(value = "알고리즘 게임 기록 등록", notes = "알고리즘 게임 기록 등록")
     public ResponseEntity<String> createRecord(@RequestBody AlgoRecordReq algoRecordReq,
                                                @AuthenticationPrincipal CustomUserDetails userDetails){
-        System.out.println("알고기록>>"+algoRecordReq.toString());
         algoService.createAlgoRecord(algoRecordReq, userDetails.getId());
 
         String msg = "";
@@ -87,7 +85,6 @@ public class AlgorithmController {
             return ResponseEntity.ok().body(false);
         }
         return ResponseEntity.ok().body(true);
-
     }
 
     @GetMapping("/record")
@@ -104,9 +101,9 @@ public class AlgorithmController {
         HashMap<String,Object> res = new HashMap<>();
         int result = algoService.confirmRoomEnter(roomCode,userDetails.getId());
         res.put("result", algoService.confirmRoomEnter(roomCode,userDetails.getId())>0?true:false);
-        res.put("msg", result==1? "입장" :
-                        result==0 ?  "이미 다른 게임 중 입니다." :
-                        result==-1?"인원이 다 찼습니다." :"이미 시작 중인 방입니다." );
+        res.put("msg", result == 1 ? "입장" :
+                        result == 0 ?  "이미 다른 게임 중 입니다." :
+                        result == -1 ? "인원이 다 찼습니다." :"이미 시작 중인 방입니다." );
         return ResponseEntity.ok().body(res);
     }
 
@@ -123,10 +120,9 @@ public class AlgorithmController {
                                              @AuthenticationPrincipal CustomUserDetails userDetails,
                                              @RequestBody AlgoSolveReq algoSolveReq) throws ParseException {
         int result = algoProblemService.confirmSolve(algoSolveReq);
-        System.out.println(result);
         HashMap<String,Object> res = new HashMap<>();
         res.put("result",result);
-        if( result == 1) {
+        if( result == 1 ) {
             algoProblemService.saveUserTime(algoSolveReq.getProblemId(),roomCode,userDetails.getId());
             res.put("msg","맞았습니다 !");
         }else{
@@ -156,11 +152,6 @@ public class AlgorithmController {
     @ApiOperation(value="백중 아이디 연동 확인")
     public ResponseEntity<Object> confirmCode(@AuthenticationPrincipal CustomUserDetails userDetails, @PathVariable String bjId) {
         return ResponseEntity.ok().body(algoService.confirmCode(userDetails.getId(),bjId));
-    }
-    @PostMapping("/test/{roomCode}")
-    public void test(@PathVariable String roomCode) throws IOException, ExecutionException, InterruptedException {
-        System.out.println(algoSocketService.getCurrentRank(roomCode));
-
     }
 
     @GetMapping("/record/rank")
